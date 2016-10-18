@@ -1,0 +1,25 @@
+#!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+
+function isinstalled {
+  if yum list installed "$@" >/dev/null 2>&1; then
+    true
+  else
+    false
+  fi
+}
+
+
+if isinstalled fish; then 
+  echo "fish is already installed.";
+else 
+  # To install fish on CentOS
+  sudo yum-config-manager --add-repo http://fishshell.com/files/linux/RedHat_RHEL-6/fish.release:2.repo
+  sudo yum install fish
+  echo -e "Installing fish...";
+fi
+
+
+#command -v $1 >/dev/null 2>&1 || { echo -e >&2 "${RED}$2${NC}"; exit 1; }
