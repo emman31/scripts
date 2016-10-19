@@ -23,6 +23,10 @@ fi
 
 fish -c 'set -U fish_user_paths ~/custom_commands $fish_user_paths'
 
+# Needed to be able to update git (CentOS 6 64 bit):
+# Does not work...
+# rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+
 # Custom commands
 mkdir -p ~/custom_commands
 
