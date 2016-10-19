@@ -21,5 +21,12 @@ else
   echo -e "Installing fish...";
 fi
 
+fish -c 'set -U fish_user_paths ~/custom_commands $fish_user_paths'
+
+# Custom commands
+mkdir -p ~/custom_commands
+
+./update_git_custom_commands
+
 
 #command -v $1 >/dev/null 2>&1 || { echo -e >&2 "${RED}$2${NC}"; exit 1; }

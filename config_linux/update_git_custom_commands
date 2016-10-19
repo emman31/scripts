@@ -1,0 +1,2 @@
+#!/bin/bash
+cp git_custom_commands/* ~/custom_commands/

@@ -1,0 +1,19 @@
+#!/bin/bash
+CYAN=$'\e[36m'
+NC=$'\e[0m' # No Color
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+TARGET_BRANCH=$1
+
+git checkout $TARGET_BRANCH
+git pull
+git status
+git merge $CURRENT_BRANCH --no-ff
+git commit --amend --no-edit
+
+read -p "${CYAN}Execute « git quick-push »?${NC}" -n 1 -r
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+  exit 1
+fi
+
+git quick-push
