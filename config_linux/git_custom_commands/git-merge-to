@@ -22,4 +22,5 @@ then
   exit 1
 fi
 
+echo
 git quick-push
